@@ -1,6 +1,7 @@
 {
   "name": "yala-qari",
   "version": "0.1.0",
+  "author": "Timothy Vernon",
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
