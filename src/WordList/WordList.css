@@ -1,0 +1,5 @@
+.word-list {
+  flex: 1;
+  margin-top: 20px;
+  /*overflow-y: scroll;*/
+}

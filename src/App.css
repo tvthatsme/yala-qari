@@ -1,14 +1,29 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Mirza', cursive;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
-.App-intro {
-  font-size: large;
+.AppHeader {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-size: 50px;
+  line-height: 50px;
+  color: rgb(66, 100, 105);
+  padding-top: 20px;
+
+  /*color: rgb(112, 170, 179); // light blue*/
+  /*color: rgb(82, 101, 141); // blue*/
 }

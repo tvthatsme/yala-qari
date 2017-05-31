@@ -1,0 +1,9 @@
+.VocabularyDrawer {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  height: calc(100vh - 75px);
+  padding: 15px;
+
+  background-color: rgba(112, 170, 179, 0.3);
+}

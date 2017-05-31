@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class AppHeader extends Component {
   render() {
     return (
-      <div>
-        Yala Quri
+      <div className="AppHeader">
+        Yala Qari
       </div>
     );
   }
