@@ -4,7 +4,7 @@ class AppHeader extends Component {
   render() {
     return (
       <div className="AppHeader">
-        Yala Qari
+        Yalla Qari
       </div>
     );
   }
