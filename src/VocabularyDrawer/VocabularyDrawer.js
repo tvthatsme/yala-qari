@@ -25,7 +25,7 @@ class VocabularyDrawer extends Component {
     return (
       <div className="VocabularyDrawer">
         <p>Add vocabulary words here</p>
-        <TextInput onInput={word => this.inputNewWord(word)}/>
+        <TextInput direction="rtl" onInput={word => this.inputNewWord(word)}/>
         <WordList words={this.props.words}/>
       </div>
     );

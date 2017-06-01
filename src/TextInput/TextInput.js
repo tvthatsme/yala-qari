@@ -24,7 +24,11 @@ class TextInput extends Component {
   render() {
     return (
       <div className="text-input">
-        <input type='text' className="input" onKeyUp={(e) => this.handleKeyUp(e)}/>
+        <input
+          type='text'
+          dir={this.props.direction ? this.props.direction : 'ltr'}
+          className="input"
+          onKeyUp={(e) => this.handleKeyUp(e)}/>
       </div>
     );
   }

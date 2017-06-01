@@ -28,7 +28,7 @@ class ReadingSpace extends Component {
         string += `${this.props.words[random].arabicWord} `;
       }
     } else {
-      string = 'Vocabulary words, randomized, and generated will go here.';
+      string = 'Vocabulary words, randomized, and generated will go here';
     }
 
     // return the string trimmed
@@ -40,7 +40,7 @@ class ReadingSpace extends Component {
    */
   render() {
     return (
-      <div className="ReadingSpace">
+      <div dir="rtl" className="ReadingSpace">
         {this.randomize()}
       </div>
     );
