@@ -1,6 +1,6 @@
-# Yala Qari
+# Yalla Qari
 
-Yala Qari translates to 'let\'s go reader!' in Arabic.
+Yalla Qari translates to 'let\'s go reader!' in Arabic.
 
 I am in the beginning stages of learning Arabic and noticed
 that I have a hard time reading through words quickly. In my
