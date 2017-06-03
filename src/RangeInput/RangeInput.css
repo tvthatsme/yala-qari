@@ -1,0 +1,11 @@
+.range-input {
+
+}
+
+.range-input__value {
+  margin: 0;
+}
+
+.range-input__slider:hover {
+  cursor: pointer;
+}

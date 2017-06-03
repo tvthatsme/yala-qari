@@ -23,12 +23,14 @@ class TextInput extends Component {
    */
   render() {
     return (
-      <div className="text-input">
+      <div className='text-input'>
         <input
           type='text'
           dir={this.props.direction ? this.props.direction : 'ltr'}
-          className="input"
-          onKeyUp={(e) => this.handleKeyUp(e)}/>
+          className='input'
+          onKeyUp={(e) => this.handleKeyUp(e)}
+          style={{fontSize: this.props.fontSize + 'px'}}
+        />
       </div>
     );
   }

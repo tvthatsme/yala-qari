@@ -23,10 +23,17 @@ class VocabularyDrawer extends Component {
    */
   render() {
     return (
-      <div className="VocabularyDrawer">
+      <div className='VocabularyDrawer'>
         <p>Add vocabulary words here</p>
-        <TextInput direction="rtl" onInput={word => this.inputNewWord(word)}/>
-        <WordList words={this.props.words}/>
+        <TextInput
+          direction='rtl'
+          fontSize={this.props.fontSize}
+          onInput={word => this.inputNewWord(word)}
+        />
+        <WordList
+          words={this.props.words}
+          fontSize={this.props.fontSize}
+        />
       </div>
     );
   }

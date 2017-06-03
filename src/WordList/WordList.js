@@ -25,7 +25,7 @@ class WordList extends Component {
     let words = this.props.words.map(word => this.renderWordObject(word));
 
     return (
-      <div className="word-list">
+      <div className='word-list' style={{fontSize: this.props.fontSize + 'px'}}>
         {words}
       </div>
     );

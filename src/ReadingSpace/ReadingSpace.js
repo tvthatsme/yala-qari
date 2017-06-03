@@ -40,7 +40,10 @@ class ReadingSpace extends Component {
    */
   render() {
     return (
-      <div dir="rtl" className="ReadingSpace">
+      <div
+        dir='rtl'
+        className='ReadingSpace'
+        style={{fontSize: this.props.fontSize + 'px', textAlign: this.props.words.length>0 ? 'right': 'center'}}>
         {this.randomize()}
       </div>
     );
