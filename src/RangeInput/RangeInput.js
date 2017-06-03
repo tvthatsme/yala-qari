@@ -14,6 +14,12 @@ class RangeInput extends Component {
 
     // This component will keep track of its value
     this.value = props.default;
+
+    // Default min value to 0 if not defined
+    this.minVal = (props.min === undefined) ? '0' : props.min;
+
+    // Default max value to 100 if not defined
+    this.maxVal = (props.max === undefined) ? '100' : props.max;
   }
 
   /**
@@ -34,8 +40,8 @@ class RangeInput extends Component {
         <input
           className='range-input__slider'
           type='range'
-          min={this.props.min}
-          max={this.props.max}
+          min={this.minVal}
+          max={this.maxVal}
           value={this.props.default}
           step='1'
           onChange={event => this.handleChange(event)}
