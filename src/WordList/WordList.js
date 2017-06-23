@@ -16,6 +16,7 @@ class WordList extends Component {
       <div key={i.id}>
         {i.arabicScript}
         <button onClick={e => this.props.toggleVisibility(i)}>{toggleText}</button>
+        <button onClick={e => this.props.removeWord(i.id)}>remove</button>
       </div>
     );
   }

@@ -40,6 +40,7 @@ class VocabularyDrawer extends Component {
           words={this.props.words}
           fontSize={this.props.fontSize}
           toggleVisibility={word => this.props.toggleWordVisibility(word)}
+          removeWord={id => this.props.removeWord(id)}
         />
       </div>
     );

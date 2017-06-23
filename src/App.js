@@ -43,6 +43,9 @@ class App extends Component {
       });
   }
 
+  /**
+   * Toggle word visibility in both indexedDB and state
+   */
   toggleWordVisibility(wordObject) {
     const visibilityState = (wordObject.inReadingList === 0) ? 1 : 0;
 
@@ -54,6 +57,18 @@ class App extends Component {
           ...this.state.words.filter((word) => word.id !== wordObject.id),
           Object.assign({}, wordUpdate, {inReadingList: visibilityState})
         ];
+        this.setState({ words: newList });
+      });
+  }
+
+  /**
+   * Remove a vocabulary word from indexedDB and state
+   */
+  removeWord(id) {
+    db.table('words')
+      .delete(id)
+      .then(() => {
+        const newList = this.state.words.filter((word) => word.id !== id);
         this.setState({ words: newList });
       });
   }
@@ -94,6 +109,7 @@ class App extends Component {
             words={this.state.words}
             addWordToList={word => this.addWordToList(word)}
             toggleWordVisibility={word => this.toggleWordVisibility(word)}
+            removeWord={id => this.removeWord(id)}
           />
         </div>
       </div>
