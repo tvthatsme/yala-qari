@@ -43,6 +43,25 @@ class App extends Component {
       });
   }
 
+  toggleWordVisibility(wordObject) {
+    const visibilityState = (wordObject.inReadingList === 0) ? 1 : 0;
+
+    db.table('words')
+      .update(wordObject.id, {inReadingList: visibilityState})
+      .then(() => {
+        const wordUpdate = this.state.words.find((word) => word.id === wordObject.id);
+        const newList = [
+          ...this.state.words.filter((word) => word.id !== wordObject.id),
+          Object.assign({}, wordUpdate, {inReadingList: visibilityState})
+        ];
+        this.setState({ words: newList });
+      });
+  }
+
+  getVisibleWords() {
+    return this.state.words.filter(word => word.inReadingList === 1);
+  }
+
   /**
    * Update the app's font size (primarily for the reading space)
    */
@@ -68,12 +87,13 @@ class App extends Component {
             update={size => this.updateFontSize(size)}
           />
           <ReadingSpace
-            words={this.state.words}
+            words={this.getVisibleWords()}
             fontSize={this.state.fontSize}
           />
           <VocabularyDrawer
             words={this.state.words}
             addWordToList={word => this.addWordToList(word)}
+            toggleWordVisibility={word => this.toggleWordVisibility(word)}
           />
         </div>
       </div>

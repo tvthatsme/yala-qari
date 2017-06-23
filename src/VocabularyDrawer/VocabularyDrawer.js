@@ -17,7 +17,8 @@ class VocabularyDrawer extends Component {
     const word = {
       arabicScript: newWord,
       englishScript: 'stub',
-      meaning: 'stub'
+      meaning: 'stub',
+      inReadingList: 1 // boolean true
     };
 
     this.props.addWordToList(word);
@@ -38,6 +39,7 @@ class VocabularyDrawer extends Component {
         <WordList
           words={this.props.words}
           fontSize={this.props.fontSize}
+          toggleVisibility={word => this.props.toggleWordVisibility(word)}
         />
       </div>
     );

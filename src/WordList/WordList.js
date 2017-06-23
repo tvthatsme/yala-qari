@@ -11,9 +11,11 @@ class WordList extends Component {
    * Render the word object
    */
   renderWordObject(i) {
+    const toggleText = i.inReadingList === 1 ? 'hide': 'show';
     return (
-      <div key={i.arabicScript}>
+      <div key={i.id}>
         {i.arabicScript}
+        <button onClick={e => this.props.toggleVisibility(i)}>{toggleText}</button>
       </div>
     );
   }
@@ -22,7 +24,10 @@ class WordList extends Component {
    * Render method to display the list of vocabulary words
    */
   render() {
-    let words = this.props.words.map(word => this.renderWordObject(word));
+    // Create list of words sorted by id
+    let words = this.props.words.sort((a, b) => {
+      return a.id - b.id;
+    }).map(word => this.renderWordObject(word));
 
     return (
       <div className='word-list' style={{fontSize: this.props.fontSize + 'px'}}>
