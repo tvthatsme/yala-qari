@@ -14,8 +14,13 @@ class VocabularyDrawer extends Component {
    * Handle the input of a new word and call the update method
    */
   inputNewWord(newWord) {
-    let newWordList = this.props.words.concat({arabicWord: newWord});
-    this.props.updateWordList(newWordList);
+    const word = {
+      arabicScript: newWord,
+      englishScript: 'stub',
+      meaning: 'stub'
+    };
+
+    this.props.addWordToList(word);
   }
 
   /**

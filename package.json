@@ -4,6 +4,7 @@
   "author": "Timothy Vernon",
   "private": true,
   "dependencies": {
+    "dexie": "^2.0.0-beta.11",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },

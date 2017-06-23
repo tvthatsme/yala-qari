@@ -25,7 +25,7 @@ class ReadingSpace extends Component {
     if (numWords > 0) {
       for(let i = 0; i < (numWords * multiply); i++) {
         let random = this.randomIntFromInterval(0, (numWords - 1));
-        string += `${this.props.words[random].arabicWord} `;
+        string += `${this.props.words[random].arabicScript} `;
       }
     } else {
       string = 'Vocabulary words, randomized, and generated will go here';

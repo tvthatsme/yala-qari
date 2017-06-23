@@ -3,7 +3,9 @@ import AppHeader from './AppHeader';
 import VocabularyDrawer from './VocabularyDrawer/VocabularyDrawer';
 import ReadingSpace from './ReadingSpace/ReadingSpace';
 import RangeInput from './RangeInput/RangeInput';
+import db from './Database';
 import './App.css';
+
 
 class App extends Component {
   /**
@@ -12,20 +14,33 @@ class App extends Component {
   constructor() {
     super();
 
-    // define the apps state with zero words to start
+    // define the apps state
     this.state = {
       words: [],
       fontSize: 40
     };
   }
 
+  componentDidMount() {
+    // Get all existing words from the database
+    db.table('words')
+      .toArray()
+      .then((words) => {
+        this.setState({ words });
+      });
+  }
+
   /**
    * Completely update the list with new words
    */
-  updateList(newList) {
-    this.setState({
-      words: newList
-    });
+  addWordToList(word) {
+    // Add the new word to the database and then update the state
+    db.table('words')
+      .add(word)
+      .then((id) => {
+        const newList = [...this.state.words, Object.assign({}, word, { id })];
+        this.setState({ words: newList });
+      });
   }
 
   /**
@@ -58,7 +73,7 @@ class App extends Component {
           />
           <VocabularyDrawer
             words={this.state.words}
-            updateWordList={list => this.updateList(list)}
+            addWordToList={word => this.addWordToList(word)}
           />
         </div>
       </div>

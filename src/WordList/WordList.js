@@ -12,8 +12,8 @@ class WordList extends Component {
    */
   renderWordObject(i) {
     return (
-      <div key={i.arabicWord}>
-        {i.arabicWord}
+      <div key={i.arabicScript}>
+        {i.arabicScript}
       </div>
     );
   }
