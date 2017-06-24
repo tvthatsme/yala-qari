@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TextInput from '../TextInput/TextInput';
+import VocabularyInput from '../VocabularyInput/VocabularyInput';
 import WordList from '../WordList/WordList';
 import './VocabularyDrawer.css';
 
@@ -11,31 +11,13 @@ import './VocabularyDrawer.css';
 class VocabularyDrawer extends Component {
 
   /**
-   * Handle the input of a new word and call the update method
-   */
-  inputNewWord(newWord) {
-    const word = {
-      arabicScript: newWord,
-      englishScript: 'stub',
-      meaning: 'stub',
-      inReadingList: 1 // boolean true
-    };
-
-    this.props.addWordToList(word);
-  }
-
-  /**
    * Render method
    */
   render() {
     return (
       <div className='VocabularyDrawer'>
         <p>Add vocabulary words here</p>
-        <TextInput
-          direction='rtl'
-          fontSize={this.props.fontSize}
-          onInput={word => this.inputNewWord(word)}
-        />
+        <VocabularyInput addWord={word => this.props.addWordToList(word)}/>
         <WordList
           words={this.props.words}
           fontSize={this.props.fontSize}

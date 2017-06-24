@@ -7,31 +7,23 @@ import './TextInput.css';
 class TextInput extends Component {
 
   /**
-   * Handle keyup event on input element
-   */
-  handleKeyUp (event) {
-    // listen for enter button
-    if (event.keyCode === 13) {
-      // send the word to the caller and clear the input
-      this.props.onInput(event.target.value);
-      event.target.value = '';
-    }
-  }
-
-  /**
    * Render method
    */
   render() {
+    const inputId = `${this.props.label}-input`;
     return (
-      <div className='text-input'>
+      <label htmlFor={inputId} className='text-input'>
+        {this.props.label}
         <input
+          id={inputId}
           type='text'
           dir={this.props.direction ? this.props.direction : 'ltr'}
           className='input'
-          onKeyUp={(e) => this.handleKeyUp(e)}
+          value={this.props.value}
+          onChange={event => this.props.onChange(event.target.value)}
           style={{fontSize: this.props.fontSize + 'px'}}
         />
-      </div>
+      </label>
     );
   }
 }
