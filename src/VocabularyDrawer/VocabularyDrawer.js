@@ -9,21 +9,39 @@ import './VocabularyDrawer.css';
  * and remove words to be used in the application.
  */
 class VocabularyDrawer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      drawerClass: 'VocabularyDrawer'
+    };
+  }
+
+  toggleDrawer() {
+    if (this.state.drawerClass === 'VocabularyDrawer') {
+      this.setState({drawerClass: 'VocabularyDrawer VocabularyDrawer--hidden'});
+    } else {
+      this.setState({drawerClass: 'VocabularyDrawer'});
+    }
+  }
 
   /**
    * Render method
    */
   render() {
     return (
-      <div className='VocabularyDrawer'>
-        <p>Add vocabulary words here</p>
-        <VocabularyInput addWord={word => this.props.addWordToList(word)}/>
-        <WordList
-          words={this.props.words}
-          fontSize={this.props.fontSize}
-          toggleVisibility={word => this.props.toggleWordVisibility(word)}
-          removeWord={id => this.props.removeWord(id)}
-        />
+      <div className={this.state.drawerClass}>
+        <div className='drawer-space'>
+          <button className='drawer-toggle' onClick={e => this.toggleDrawer()}>&#9776;</button>
+          <p>Add vocabulary words here</p>
+          <VocabularyInput addWord={word => this.props.addWordToList(word)}/>
+          <WordList
+            words={this.props.words}
+            fontSize={this.props.fontSize}
+            toggleVisibility={word => this.props.toggleWordVisibility(word)}
+            removeWord={id => this.props.removeWord(id)}
+          />
+        </div>
       </div>
     );
   }

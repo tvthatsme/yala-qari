@@ -13,10 +13,12 @@ class WordList extends Component {
   renderWordObject(i) {
     const toggleText = i.inReadingList === 1 ? 'hide': 'show';
     return (
-      <div key={i.id}>
-        {i.arabicScript}
-        <button onClick={e => this.props.toggleVisibility(i)}>{toggleText}</button>
-        <button onClick={e => this.props.removeWord(i.id)}>remove</button>
+      <div key={i.id} className='WordItem'>
+        <span>{i.arabicScript}</span>
+        <div>
+          <button className='word-button' onClick={e => this.props.toggleVisibility(i)}>{toggleText}</button>
+          <button className='word-button' onClick={e => this.props.removeWord(i.id)}>remove</button>
+        </div>
       </div>
     );
   }

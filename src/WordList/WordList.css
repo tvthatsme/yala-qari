@@ -3,3 +3,38 @@
   margin-top: 20px;
   font-size: 20px;
 }
+
+.word-button {
+  opacity: 0;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.word-button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.word-button:hover {
+  cursor: pointer;
+}
+
+.WordItem {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 3px;
+}
+
+.WordItem:hover {
+  background-color: rgb(82, 101, 141);
+}
+
+.WordItem:hover span {
+  color: white;
+}
+
+.WordItem:hover button {
+  opacity: 1;
+}
